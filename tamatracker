@@ -14,9 +14,29 @@ HUNGER_DECAY_RATE = {
 }
 
 
+def predict_happiness(initial, stage):
+    """
+Predicts the time required for the happiness meter to drop to zero starting from the initial happiness
+    :param initial: Defines the initial happiness
+    :type initial: int
+    :param stage: Defines the life stage of a Tamagotchi, so the function knows which decay rate to use
+    :type stage: str
+    :return: Returns time to zero happiness
+    :rtype: float
+    """
+    decay_rate = HAPPINESS_DECAY_RATE.get(stage)
+
+    time_to_zero = - initial / decay_rate
+    return time_to_zero
+
+
 class Timeline:
 
     def __init__(self, tama):
+        """
+        Create an instance of Timeline
+        :param tama: Defines the Tamagotchi that would be tracked in the Timeline instance
+        """
         self.timeline = []
         self.tama = tama
 
@@ -26,9 +46,9 @@ Adds an event to the timeline
         :param timestamp: Used to set up a timestamp for the event
         :type timestamp: list
         :param kwargs: May have optional parameters such as happiness, hunger and Tamagotchi stage
-        :type happiness: int
-        :type hunger: int
-        :type stage: str
+        :key happiness: Tamagotchi's happiness at the time of the event, should be int
+        :key hunger: Tamagotchi's hunger at the time of the event, should be int
+        :key stage: Tamagotchi's growth stage, should be "baby", "child", "teen" or "adult"
         """
         event = {
             "timestamp": datetime.datetime(*timestamp),
@@ -45,18 +65,3 @@ Removes an event from the timeline
         :type event: int
         """
         self.timeline.pop(event - 1)
-
-    def predict_happiness(self, initial, stage):
-        """
-Predicts the time required for the happiness meter to drop to zero starting from the initial happiness
-        :param initial: Defines the initial happiness
-        :type initial: int
-        :param stage: Defines the life stage of a Tamagotchi, so the function knows which decay rate to use
-        :type stage: str
-        :return: Returns time to zero happiness
-        :rtype: float
-        """
-        decay_rate = HAPPINESS_DECAY_RATE.get(stage)
-
-        time_to_zero = - initial / decay_rate
-        return time_to_zero

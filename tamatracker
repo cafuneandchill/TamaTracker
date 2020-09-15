@@ -46,7 +46,6 @@ Predicts the time required for the hunger meter to drop to zero starting from th
     return time_to_zero
 
 
-
 class Timeline:
 
     def __init__(self, tama):
@@ -88,5 +87,19 @@ Removes an event from the timeline
         :return: None
         """
         self.timeline.pop(event_n - 1)
+
+    def edit_event(self, event_n, **kwargs):
         """
-        self.timeline.pop(event - 1)
+Edits an event in the timeline
+        :param event_n: Event number, starts from 1
+        :param kwargs: Optional keyword arguments
+        :key timestamp: Event's new timestamp, defines as in the add_event() method
+        :key happiness: New happiness level
+        :key hunger: New hunger level
+        :key stage: New growth stage
+        :key ate: The food Tamagotchi ate, defined in the same way as in the add_event() method
+        :key played_with: The toys Tamagotchi played with, defined in the same way as on the add_event() method
+        :return: None
+        """
+        event = self.timeline[event_n - 1]
+        event.update(kwargs)

@@ -60,7 +60,6 @@ class Timeline:
     def add_event(self, timestamp, **kwargs):
         """
 Adds an event to the timeline
-        :param timestamp: Used to set up a timestamp for the event
         :param timestamp: Used to set up a timestamp for the event - [year, month, day, hour, minute, second]
         :type timestamp: list
         :param kwargs: May have optional parameters such as happiness, hunger and Tamagotchi stage

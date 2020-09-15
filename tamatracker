@@ -30,18 +30,24 @@ class MyTama(Tamagotchi):
 
 
 class Timeline:
+    """
+    An object that represents the sequence of events in the live of a Tamagotchi
+    """
 
     def __init__(self, tama):
         """
         Create an instance of Timeline
+
         :param tama: Defines the Tamagotchi that would be tracked in the Timeline instance
+        :return: None
         """
         self.timeline = []
         self.tama = tama
 
     def add_event(self, timestamp, **kwargs):
         """
-Adds an event to the timeline
+        Adds an event to the timeline
+
         :param timestamp: Used to set up a timestamp for the event - [year, month, day, hour, minute, second]
         :type timestamp: list
         :param kwargs: May have optional parameters such as happiness, hunger and Tamagotchi stage
@@ -64,7 +70,8 @@ Adds an event to the timeline
 
     def remove_event(self, event_n):
         """
-Removes an event from the timeline
+        Removes an event from the timeline
+
         :param event_n: The number of the event; the order of events in the timeline starts from 1
         :type event_n: int
         :return: None
@@ -73,7 +80,8 @@ Removes an event from the timeline
 
     def edit_event(self, event_n, **kwargs):
         """
-Edits an event in the timeline
+        Edits an event in the timeline
+
         :param event_n: Event number, starts from 1
         :param kwargs: Optional keyword arguments
         :key timestamp: Event's new timestamp, defines as in the add_event() method

@@ -61,17 +61,23 @@ class Timeline:
         """
 Adds an event to the timeline
         :param timestamp: Used to set up a timestamp for the event
+        :param timestamp: Used to set up a timestamp for the event - [year, month, day, hour, minute, second]
         :type timestamp: list
         :param kwargs: May have optional parameters such as happiness, hunger and Tamagotchi stage
         :key happiness: Tamagotchi's happiness at the time of the event, should be int
         :key hunger: Tamagotchi's hunger at the time of the event, should be int
         :key stage: Tamagotchi's growth stage, should be "baby", "child", "teen" or "adult"
+        :key ate: Food that Tamagotchi ate; is a list - [[food_1, amount_1], [food_2, amount_2], ...]
+        :key played_with: Toys that Tamagotchi played with; is a list - [[toy_1, times_played_1], ...]
+        :return: None
         """
         event = {
             "timestamp": datetime.datetime(*timestamp),
             "happiness": kwargs.get("happiness", None),
             "hunger": kwargs.get("hunger", None),
             "stage": kwargs.get("stage", None),
+            "ate": kwargs.get("ate", None),
+            "played_with": kwargs.get("played_with", None),
         }
         self.timeline.append(event)
 

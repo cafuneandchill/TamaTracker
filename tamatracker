@@ -80,10 +80,13 @@ Adds an event to the timeline
         }
         self.timeline.append(event)
 
-    def remove_event(self, event):
+    def remove_event(self, event_n):
         """
 Removes an event from the timeline
-        :param event: The number of the event; the order of events in the timeline starts from 1
-        :type event: int
+        :param event_n: The number of the event; the order of events in the timeline starts from 1
+        :type event_n: int
+        :return: None
+        """
+        self.timeline.pop(event_n - 1)
         """
         self.timeline.pop(event - 1)

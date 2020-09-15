@@ -15,18 +15,57 @@ HUNGER_DECAY_RATE = {
 
 
 
-
-
 class Tamagotchi:
-    pass
+
+    def __init__(self, name, stage="baby"):
+        self.age = []  # PLACEHOLDER
+        self.name = name
+        self.stage = stage
+        self.spouse = None
+        self.is_married = False
+        self._children = []
+
+    @property
+    def children(self):
+        return self._children
+
+    @children.setter
+    def children(self, child_1=None, child_2=None):
+        self._children = [child_1, child_2]
+        self.is_married = True
+
+    def marry(self, spouse):
+        self.spouse = spouse
+        self.is_married = True
+        spouse.spouse = self
+        spouse.is_married = True
+        children = [None, None]
+        self.children = children
+        spouse.children = children
 
 
 class Firstborn(Tamagotchi):
-    pass
+
+    def __init__(self, name, stage):
+        super().__init__(name, stage)
+        self.traits = {
+            "body": self.name,
+            "eyes": self.name,
+            "headgear": self.name,
+            "misc": self.name
+        }
 
 
 class MyTama(Tamagotchi):
-    pass
+
+    def __init__(self, name, stage, body, eyes, headgear, misc):
+        super().__init__(name, stage)
+        self.traits = {
+            "body": body,
+            "eyes": eyes,
+            "headgear": headgear,
+            "misc": misc
+        }
 
 
 class Timeline:

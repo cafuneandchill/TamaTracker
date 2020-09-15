@@ -46,6 +46,18 @@ Predicts the time required for the hunger meter to drop to zero starting from th
     return time_to_zero
 
 
+class Tamagotchi:
+    pass
+
+
+class Firstborn(Tamagotchi):
+    pass
+
+
+class MyTama(Tamagotchi):
+    pass
+
+
 class Timeline:
 
     def __init__(self, tama):

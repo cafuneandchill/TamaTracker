@@ -10,3 +10,5 @@ _The program is currently in a work in progress state, so there are no public re
 * [ ] Tracking of happiness, hunger and growth progress (by manual user input)
 * [ ] Prediction of happiness and hunger decay based on the hunger and happiness decay rates of different Tamagotchi life stages (will require additional research)
 * [ ] A tool for building family trees, as well as connecting the ancestry lines between different family trees
+* [ ] Windows, Linux ports + possibly Mac
+* [ ] Android port + possibly iOS

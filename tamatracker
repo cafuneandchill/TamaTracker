@@ -14,36 +14,7 @@ HUNGER_DECAY_RATE = {
 }
 
 
-def predict_happiness(initial, stage):
-    """
-Predicts the time required for the happiness meter to drop to zero starting from the initial happiness
-    :param initial: Defines the initial happiness
-    :type initial: int
-    :param stage: Defines the life stage of a Tamagotchi, so the function knows which decay rate to use
-    :type stage: str
-    :return: Returns time to zero happiness
-    :rtype: float
-    """
-    decay_rate = HAPPINESS_DECAY_RATE.get(stage)
 
-    time_to_zero = - initial / decay_rate
-    return time_to_zero
-
-
-def predict_hunger(initial, stage):
-    """
-Predicts the time required for the hunger meter to drop to zero starting from the initial hunger
-    :param initial: Defines the initial hunger
-    :type initial: int
-    :param stage: Defines the life stage of a Tamagotchi, so the function knows which decay rate to use
-    :type stage: str
-    :return: Returns time to zero hunger
-    :rtype: float
-    """
-    decay_rate = HUNGER_DECAY_RATE.get(stage)
-
-    time_to_zero = - initial / decay_rate
-    return time_to_zero
 
 
 class Tamagotchi:
@@ -115,3 +86,37 @@ Edits an event in the timeline
         """
         event = self.timeline[event_n - 1]
         event.update(kwargs)
+
+    @staticmethod
+    def predict_happiness(initial, stage):
+        """
+        Predicts the time required for the happiness meter to drop to zero starting from the initial happiness
+
+        :param initial: Defines the initial happiness
+        :type initial: int
+        :param stage: Defines the life stage of a Tamagotchi, so the function knows which decay rate to use
+        :type stage: str
+        :return: Returns time to zero happiness
+        :rtype: float
+        """
+        decay_rate = HAPPINESS_DECAY_RATE.get(stage)
+
+        time_to_zero = - initial / decay_rate
+        return time_to_zero
+
+    @staticmethod
+    def predict_hunger(initial, stage):
+        """
+        Predicts the time required for the hunger meter to drop to zero starting from the initial hunger
+
+        :param initial: Defines the initial hunger
+        :type initial: int
+        :param stage: Defines the life stage of a Tamagotchi, so the function knows which decay rate to use
+        :type stage: str
+        :return: Returns time to zero hunger
+        :rtype: float
+        """
+        decay_rate = HUNGER_DECAY_RATE.get(stage)
+
+        time_to_zero = - initial / decay_rate
+        return time_to_zero

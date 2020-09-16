@@ -14,10 +14,21 @@ HUNGER_DECAY_RATE = {
 }
 
 
-
 class Tamagotchi:
+    """
+    Parent class for different types of Tamagotchi
+    """
 
     def __init__(self, name, stage="baby"):
+        """
+        Creates an instance of a Tamagotchi class
+
+        :param name: Tamagotchi's name
+        :type name: str
+        :param stage: Tamagotchi's life stage; can be "baby" (default if not specified), "child", "teen", "adult"
+        :type stage: str
+        :return: None
+        """
         self.age = []  # PLACEHOLDER
         self.name = name
         self.stage = stage
@@ -27,14 +38,35 @@ class Tamagotchi:
 
     @property
     def children(self):
+        """
+        Returns Tamagotchi's children
+
+        :rtype: list
+        """
         return self._children
 
     @children.setter
     def children(self, child_1=None, child_2=None):
+        """
+        Defines Tamagotchi's children
+
+        :param child_1: First child; defaults to None if not specified
+        :type child_1: MyTama
+        :param child_2: Second child; defaults to None if not specified
+        :type child_2: MyTama
+        :return: None
+        """
         self._children = [child_1, child_2]
         self.is_married = True
 
     def marry(self, spouse):
+        """
+        Marries two instances of Tamagotchi together
+
+        :param spouse: Tamagotchi instance that is considered the spouse
+        :type spouse: Tamagotchi
+        :return: None
+        """
         self.spouse = spouse
         self.is_married = True
         spouse.spouse = self
@@ -45,8 +77,20 @@ class Tamagotchi:
 
 
 class Firstborn(Tamagotchi):
+    """
+    Child class of Tamagotchi class that is used to define Tamagotchi of the first generation in a family line
+    """
 
-    def __init__(self, name, stage):
+    def __init__(self, name, stage="baby"):
+        """
+        Creates an instance of Firstborn class
+
+        :param name: Firstborn's name
+        :type name: str
+        :param stage: Firstborn's life stage
+        :type stage: str
+        :return: None
+        """
         super().__init__(name, stage)
         self.traits = {
             "body": self.name,
@@ -55,10 +99,36 @@ class Firstborn(Tamagotchi):
             "misc": self.name
         }
 
+    @property
+    def sex(self):
+        return None  # PLACEHOLDER
+
 
 class MyTama(Tamagotchi):
+    """
+    Child class of Tamagotchi class that is used to define Tamagotchi from the second generation onward.
 
-    def __init__(self, name, stage, body, eyes, headgear, misc):
+    Traits are defined by the name (string) of the first generation Tamagotchi that has that trait.
+    """
+
+    def __init__(self, name,  body, eyes, headgear, misc, stage="baby"):
+        """
+        Creates an instance of MyTama class
+
+        :param name: MyTama's name; usually follows the naming pattern of {base name} + 'tchi'
+        :type name: str
+        :param stage: MyTama's life stage
+        :type stage: str
+        :param body: Inherited body type; defined by the name of the first-gen Tamagotchi that has that type
+        :type body: str
+        :param eyes: Inherited eyes type
+        :type eyes: str
+        :param headgear: Inherited headgear type
+        :type headgear: str
+        :param misc: Inherited miscellaneous type
+        :type misc: str
+        :return: None
+        """
         super().__init__(name, stage)
         self.traits = {
             "body": body,
@@ -78,6 +148,7 @@ class Timeline:
         Create an instance of Timeline
 
         :param tama: Defines the Tamagotchi that would be tracked in the Timeline instance
+        :type tama: Tamagotchi
         :return: None
         """
         self.timeline = []

@@ -47,17 +47,15 @@ class Tamagotchi(ABC):
         return self._children
 
     @children.setter
-    def children(self, child_1=None, child_2=None):
+    def children(self, children):
         """
         Defines Tamagotchi's children
 
-        :param child_1: First child; defaults to None if not specified
-        :type child_1: MyTama
-        :param child_2: Second child; defaults to None if not specified
-        :type child_2: MyTama
+        :param children: Children of a Tamagotchi instance
+        :type children: list
         :return: None
         """
-        self._children = [child_1, child_2]
+        self._children = children
         self.is_married = True
 
     def marry(self, spouse):

@@ -58,21 +58,23 @@ class Tamagotchi(ABC):
         self._children = children
         self.is_married = True
 
-    def marry(self, spouse):
+    def marry(self, spouse, child_1=None, child_2=None):
         """
         Marries two instances of Tamagotchi together
 
         :param spouse: Tamagotchi instance that is considered the spouse
         :type spouse: Tamagotchi
+        :param child_1: First child
+        :type child_1: MyTama
+        :param child_2: Second child
+        :type child_2: MyTama
         :return: None
         """
         self.spouse = spouse
         self.is_married = True
         spouse.spouse = self
         spouse.is_married = True
-        children = [None, None]
-        self.children = children
-        spouse.children = children
+        self.children = [child_1, child_2]
 
 
 class Firstborn(Tamagotchi):

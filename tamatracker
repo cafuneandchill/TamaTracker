@@ -1,4 +1,5 @@
 import datetime
+from abc import ABC
 
 HAPPINESS_DECAY_RATE = {
     "baby": -60,  # bar/h, PLACEHOLDER
@@ -14,9 +15,9 @@ HUNGER_DECAY_RATE = {
 }
 
 
-class Tamagotchi:
+class Tamagotchi(ABC):
     """
-    Parent class for different types of Tamagotchi
+    Abstract base class for different types of Tamagotchi
     """
 
     def __init__(self, name, stage="baby"):

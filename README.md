@@ -6,7 +6,7 @@ _The program is currently in a work in progress state, so there are no public re
 
 ## Planned features
 
-* [ ] An actual complete GUI :tired_face:
+* [ ] An actual complete GUI :tired_face: (planning to do it with Kivy framework)
 * [ ] Tracking of happiness, hunger and growth progress (by manual user input)
 * [ ] Prediction of happiness and hunger decay based on the hunger and happiness decay rates of different Tamagotchi life stages (will require additional research)
 * [ ] A tool for building family trees, as well as connecting the ancestry lines between different family trees

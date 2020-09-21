@@ -1,0 +1,23 @@
+# Theories on Tamagotchi ON life processes
+
+## Hunger
+
+### Baby stage
+
+Measurements of Tamagotchi's hunger have been performed. The hunger decay rate is approximately 0.333 bar/min (or 1 bar in 3 min). However, the first measurement is usually less than the rest. That might mean that Tamagotchi has an "internal timer" that counts down to the next hunger bar decay (Tamagotchi "digests" hunger bars one at a time). This "timer" doesn't reset after a feeding session.
+
+Example of hunger measurements
+| Hunger (bars)            | Time         |
+|--------------------------|--------------|
+| 6 (start of measurement) | 0 min 0 sec  |
+| 5                        | 2 min 4 sec  |
+| 4                        | 3 min 1 sec  |
+| 3                        | 2 min 59 sec |
+
+### Adult stage
+
+## Happiness
+
+### Baby stage
+
+### Adult stage

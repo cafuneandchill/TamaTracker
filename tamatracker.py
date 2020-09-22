@@ -1,5 +1,5 @@
 import datetime
-from abc import ABC
+from abc import ABC, abstractmethod
 
 HAPPINESS_DECAY_RATE = {
     "baby": -60,  # bar/h, PLACEHOLDER
@@ -58,6 +58,11 @@ class Tamagotchi(ABC):
         self._children = children
         self.is_married = True
 
+    @abstractmethod
+    @property
+    def gender(self):
+        raise NotImplementedError
+
     def marry(self, spouse, child_1=None, child_2=None):
         """
         Marries two instances of Tamagotchi together
@@ -70,11 +75,14 @@ class Tamagotchi(ABC):
         :type child_2: MyTama
         :return: None
         """
-        self.spouse = spouse
-        self.is_married = True
-        spouse.spouse = self
-        spouse.is_married = True
-        self.children = [child_1, child_2]
+        if self.gender is not spouse.gender:
+            self.spouse = spouse
+            self.is_married = True
+            spouse.spouse = self
+            spouse.is_married = True
+            self.children = [child_1, child_2]
+        else:
+            raise ValueError("Spouse Tamagotchi object has the same gender")
 
 
 class Firstborn(Tamagotchi):
@@ -97,12 +105,13 @@ class Firstborn(Tamagotchi):
             "body": self.name,
             "eyes": self.name,
             "headgear": self.name,
-            "misc": self.name
+            "misc": self.name,
+            "color": self.name
         }
 
     @property
-    def sex(self):
-        return None  # PLACEHOLDER
+    def gender(self):
+        raise NotImplementedError
 
 
 class MyTama(Tamagotchi):
@@ -112,7 +121,7 @@ class MyTama(Tamagotchi):
     Traits are defined by the name (string) of the first generation Tamagotchi that has that trait.
     """
 
-    def __init__(self, name,  body, eyes, headgear, misc, stage="baby"):
+    def __init__(self, name,  body, eyes, headgear, misc, color, stage="baby"):
         """
         Creates an instance of MyTama class
 
@@ -135,7 +144,8 @@ class MyTama(Tamagotchi):
             "body": body,
             "eyes": eyes,
             "headgear": headgear,
-            "misc": misc
+            "misc": misc,
+            "color": color
         }
 
 
@@ -178,6 +188,7 @@ class Timeline:
             "played_with": kwargs.get("played_with", None),
         }
         self.timeline.append(event)
+        self.timeline.sort()  # WRITE THE KEY FOR SORTING
 
     def remove_event(self, event_n):
         """

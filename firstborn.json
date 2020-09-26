@@ -1,0 +1,143 @@
+{
+  "obtainable": {
+    "baby": [
+      {
+        "version": [
+          "Fairy, Magic"
+        ],
+        "list": [
+          {
+            "name": "Shizukutchi",
+            "gender": "m",
+            "obtaining": "random"
+          },
+          {
+            "name": "Marupitchi",
+            "gender": "f",
+            "obtaining": "random"
+          }
+        ]
+      },
+      {
+        "version": "Pastel",
+        "list": [
+          {
+            "name": "Tamaleaftchi",
+            "gender": "m",
+            "obtaining": "random"
+          },
+          {
+            "name": "Tamahanatchi",
+            "gender": "f",
+            "obtaining": "random"
+          }
+        ]
+      },
+      {
+        "version": "Sanrio",
+        "list": [
+          {
+            "name": "Karaputchi",
+            "gender": "m",
+            "obtaining": "random"
+          },
+          {
+            "name": "Riboputchi",
+            "gender": "f",
+            "obtaining": "random"
+          }
+        ]
+      },
+      {
+        "version": [
+          "Fantasy",
+          "Wonder Garden"
+        ],
+        "list": [
+          {
+            "name": "Hoshinokotchi",
+            "gender": "m",
+            "obtaining": "random"
+          },
+          {
+            "name": "Lovekotchi",
+            "gender": "f",
+            "obtaining": "random"
+          }
+        ]
+      },
+      {
+        "version": "Sweets",
+        "list": [
+          {
+            "name": "Fuwatsunotchi",
+            "gender": "m",
+            "obtaining": "random"
+          },
+          {
+            "name": "Puchimochitchi",
+            "gender": "f",
+            "obtaining": "random"
+          }
+        ]
+      }
+    ],
+    "child": [
+      {
+        "version": ["Fairy", "Magic"],
+        "list": [
+          {
+            "name": "Hoshipontchi",
+            "gender": "m",
+            "obtaining": {
+              "happiness": [10,"+"]
+            }
+          },
+          {
+            "name": "Mokumokutchi",
+            "gender": "m",
+            "obtaining": {
+              "happiness": [9, "-"]
+            }
+          },
+          {
+            "name": "Chiroritchi",
+            "gender": "f",
+            "obtaining": {
+              "happiness": [10,"+"]
+            }
+          },
+          {
+            "name": "Peacetchi",
+            "gender": "f",
+            "obtaining": {
+              "happiness": [9,"-"]
+            }
+          }
+        ]
+      },
+      {
+        "version": "Pastel",
+        "list": [
+          {
+            "name": "Watoputchi",
+            "gender": "m",
+            "obtaining": {
+              "happiness": [10,"+"]
+            }
+          },
+          {
+            "name": "Mokorobatchi",
+            "gender": "m",
+            "obtaining": {
+              "happiness": [9,"-"]
+            }
+          }
+        ]
+      }
+    ],
+    "teen": [],
+    "adult": []
+  },
+  "unobtainable": []
+}
